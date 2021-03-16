@@ -36,6 +36,21 @@ namespace UnitTestProject1
             bool result = program.validateName("sanju");
             Assert.AreEqual(false, result);
         }
+        [TestMethod]
+        public void TestEmailName()
+        {
+            Program program = new Program();
+            bool result = program.validateEmail("sanju@gmail.com");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidEmailName()
+        {
+            Program program = new Program();
+            bool result = program.validateEmail("sanjugmail.com");
+            Assert.AreEqual(false, result);
+        }
     }
 
 }
