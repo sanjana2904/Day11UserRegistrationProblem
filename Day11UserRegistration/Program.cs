@@ -28,7 +28,26 @@ namespace Day11UserRegistration
             }
 
         }
-        static void Main(string[] args)
+        public bool validateEmail(string name)
+        {
+            string pattern = @"^[\w]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+";
+            bool result = Regex.IsMatch(name, pattern);
+            return result;
+        }
+        try
+
+            {
+                if (Regex.IsMatch(name, pattern))
+                    return true;
+                else
+                    throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid email, "Invalid email")
+            }
+            catch (UserRegistrationException ex)
+            {
+                Console.WriteLine(ex.result);
+                return false;
+            }
+static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Problem");
             Console.WriteLine("Welcome to unit testing of user registration");
@@ -37,9 +56,12 @@ namespace Day11UserRegistration
             Program program = new Program();
             result = program.validateFirstName("Sanjana");
             Console.WriteLine("First name validation result: " + result);
-        }
-    }
+            result = program.validateEmail("sanju@gmail.com");
+            Console.WriteLine("Email name validation result: " + result);
 }
+}
+
+
 
 
 
