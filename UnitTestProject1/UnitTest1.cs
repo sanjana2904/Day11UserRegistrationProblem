@@ -81,6 +81,21 @@ namespace UnitTestProject1
             bool result = program.validatePassword("sanjana");
             Assert.AreEqual(false, result);
         }
+        [TestMethod]
+        public void TestValidUppercase()
+        {
+            Program program = new Program();
+            bool result = program.validateUppercase("saNjanaks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidUppercase()
+        {
+            Program program = new Program();
+            bool result = program.validateUppercase("sanjana");
+            Assert.AreEqual(false, result);
+        }
     }
 
 }
