@@ -106,6 +106,7 @@ namespace Day11UserRegistration
                     Console.WriteLine(ex.result);
                     return false;
                 }
+
                     public bool validateNumericcase(string name)
                     {
                         string pattern = @"^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
@@ -126,26 +127,52 @@ namespace Day11UserRegistration
                         return false;
                     }
 
+            public bool validateSpecialCharactercase(string name)
+            {
+                string pattern = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
+                bool result = Regex.IsMatch(name, pattern);
+                return result;
+            }
 
-static void Main(string[] args)
-                {
-                Console.WriteLine("Welcome to User Registration Problem");
-                Console.WriteLine("Welcome to unit testing of user registration");
-                bool result;
+            try
 
-                Program program = new Program();
-                result = program.validateFirstName("Sanjana");
-                Console.WriteLine("First name validation result: " + result);
-                result = program.validateEmail("sanju@gmail.com");
-                Console.WriteLine("Email name validation result: " + result);
-                result = program.validatePhoneNumber("91 7708796223");
-                Console.WriteLine("Phone Number validation result: " + result);
-                result = program.validatePassword("sanjanaks");
-                Console.WriteLine("Password validation result: " + result);
-                result = program.validateUppercase("saNjanaks");
-                Console.WriteLine("Uppercase validation result: " + result);
-                result = program.validateNumericcase("sanjana5ks");
-                Console.WriteLine("Numeric case validation result: " + result);
+            {
+                if (Regex.IsMatch(name, pattern))
+                    return true;
+                else
+                    throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid Name, "Invalid name")
+                                                                           }
+            catch (UserRegistrationException ex)
+            {
+                Console.WriteLine(ex.result);
+                return false;
+            }
+
+
+           static void Main(string[] args)
+                   {
+            Console.WriteLine("Welcome to User Registration Problem");
+            Console.WriteLine("Welcome to unit testing of user registration");
+            bool result;
+
+            Program program = new Program();
+            result = program.validateFirstName("Sanjana");
+            Console.WriteLine("First name validation result: " + result);
+            result = program.validateEmail("sanju@gmail.com");
+            Console.WriteLine("Email name validation result: " + result);
+            result = program.validatePhoneNumber("91 7708796223");
+            Console.WriteLine("Phone Number validation result: " + result);
+            result = program.validatePassword("sanjanaks");
+            Console.WriteLine("Password validation result: " + result);
+            result = program.validateUppercase("saNjanaks");
+            Console.WriteLine("Uppercase validation result: " + result);
+            result = program.validateNumericcase("sanjana5ks");
+            Console.WriteLine("Numeric case validation result: " + result);
+            result = program.validateSpecialCharactercase("sanJana5*Ks");
+            Console.WriteLine("Special Character case validation result: " + result);
+}
+
+                
 }
 
 

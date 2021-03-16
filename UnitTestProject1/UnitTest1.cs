@@ -111,6 +111,21 @@ namespace UnitTestProject1
             bool result = program.validateNumericcase("sanjana5ks");
             Assert.AreEqual(false, result);
         }
+        [TestMethod]
+        public void TestValidSpecialCharactercase()
+        {
+            Program program = new Program();
+            bool result = program.validateSpecialCharactercase("sanJana5*ks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidSpecialCharactercase()
+        {
+            Program program = new Program();
+            bool result = program.validateSpecialCharactercase("sanJana5Ks");
+            Assert.AreEqual(false, result);
+        }
     }
 
 }
