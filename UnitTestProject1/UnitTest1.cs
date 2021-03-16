@@ -51,6 +51,21 @@ namespace UnitTestProject1
             bool result = program.validateEmail("sanjugmail.com");
             Assert.AreEqual(false, result);
         }
+        [TestMethod]
+        public void TestValidPhoneNumber()
+        {
+            Program program = new Program();
+            bool result = program.validatePhoneNumber("91 7708796223");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidPhoneNumber()
+        {
+            Program program = new Program();
+            bool result = program.validatePhoneNumber("917708796223");
+            Assert.AreEqual(false, result);
+        }
     }
 
 }
