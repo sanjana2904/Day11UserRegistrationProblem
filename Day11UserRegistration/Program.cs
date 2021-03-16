@@ -87,6 +87,26 @@ namespace Day11UserRegistration
                     Console.WriteLine(ex.result);
                     return false;
                 }
+                public bool validateUppercase(string uppercase)
+                {
+                    string pattern = @"^(?=.*[A-Z]).{8,}$";
+                    bool result = Regex.IsMatch(uppercase, pattern);
+                    return result;
+                }
+                try
+
+                {
+                    if (Regex.IsMatch(uppercase, pattern))
+                        return true;
+                    else
+                        throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid uppercase, "Invalid uppercase")
+                                                }
+                catch (UserRegistrationException ex)
+                {
+                    Console.WriteLine(ex.result);
+                    return false;
+                }
+
 
 
 static void Main(string[] args)
@@ -104,6 +124,8 @@ static void Main(string[] args)
                 Console.WriteLine("Phone Number validation result: " + result);
                 result = program.validatePassword("sanjanaks");
                 Console.WriteLine("Password validation result: " + result);
+                result = program.validateUppercase("saNjanaks");
+                Console.WriteLine("Uppercase validation result: " + result);
 }
 
 
