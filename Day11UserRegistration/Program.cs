@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Day11UserRegistration;
+using System;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
@@ -41,25 +42,53 @@ namespace Day11UserRegistration
                     return true;
                 else
                     throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid email, "Invalid email")
-            }
+public Program()
+        {
+        }
+    }
             catch (UserRegistrationException ex)
             {
                 Console.WriteLine(ex.result);
                 return false;
             }
-static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to User Registration Problem");
-            Console.WriteLine("Welcome to unit testing of user registration");
-            bool result;
 
-            Program program = new Program();
-            result = program.validateFirstName("Sanjana");
-            Console.WriteLine("First name validation result: " + result);
-            result = program.validateEmail("sanju@gmail.com");
-            Console.WriteLine("Email name validation result: " + result);
+            public bool validatePhoneNumber(string number)
+            {
+                string pattern = @"^\d{2}\s\d{10}$";
+                bool result = Regex.IsMatch(number, pattern);
+                return result;
+            }
+                try
+
+                {
+                    if (Regex.IsMatch(number, pattern))
+                        return true;
+                    else
+                        throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid number, "Invalid number")
+                }
+                catch (UserRegistrationException ex)
+                {
+                    Console.WriteLine(ex.result);
+                    return false;
+                }
+
+
+
+                static void Main(string[] args)
+                {
+                Console.WriteLine("Welcome to User Registration Problem");
+                Console.WriteLine("Welcome to unit testing of user registration");
+                bool result;
+
+                Program program = new Program();
+                result = program.validateFirstName("Sanjana");
+                Console.WriteLine("First name validation result: " + result);
+                result = program.validateEmail("sanju@gmail.com");
+                Console.WriteLine("Email name validation result: " + result);
+                result = program.validatePhoneNumber("91 7708796223");
+                Console.WriteLine("Phone Number validation result: " + result);
 }
-}
+
 
 
 
