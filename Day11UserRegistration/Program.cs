@@ -42,9 +42,6 @@ namespace Day11UserRegistration
                     return true;
                 else
                     throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid email, "Invalid email")
-public Program()
-        {
-        }
     }
             catch (UserRegistrationException ex)
             {
@@ -71,10 +68,28 @@ public Program()
                     Console.WriteLine(ex.result);
                     return false;
                 }
+            public bool validatePassword(string password)
+            {
+                string pattern = @"^.{8,}$";
+                bool result = Regex.IsMatch(password, pattern);
+                return result;
+            }
+                try
+
+                {
+                    if (Regex.IsMatch(password, pattern))
+                        return true;
+                    else
+                        throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid number, "Invalid number")
+                                }
+                catch (UserRegistrationException ex)
+                {
+                    Console.WriteLine(ex.result);
+                    return false;
+                }
 
 
-
-                static void Main(string[] args)
+static void Main(string[] args)
                 {
                 Console.WriteLine("Welcome to User Registration Problem");
                 Console.WriteLine("Welcome to unit testing of user registration");
@@ -87,6 +102,8 @@ public Program()
                 Console.WriteLine("Email name validation result: " + result);
                 result = program.validatePhoneNumber("91 7708796223");
                 Console.WriteLine("Phone Number validation result: " + result);
+                result = program.validatePassword("sanjanaks");
+                Console.WriteLine("Password validation result: " + result);
 }
 
 
