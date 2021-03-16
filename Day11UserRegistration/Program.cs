@@ -106,7 +106,25 @@ namespace Day11UserRegistration
                     Console.WriteLine(ex.result);
                     return false;
                 }
+                    public bool validateNumericcase(string name)
+                    {
+                        string pattern = @"^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+                        bool result = Regex.IsMatch(name, pattern);
+                        return result;
+                    }
+                    try
 
+                    {
+                        if (Regex.IsMatch(name, pattern))
+                            return true;
+                        else
+                            throw new UserRegistrationException(UserRegistration.ExceptionType.Invalid Numeric case, "Invalid numeric case ")
+                                                                    }
+                    catch (UserRegistrationException ex)
+                    {
+                        Console.WriteLine(ex.result);
+                        return false;
+                    }
 
 
 static void Main(string[] args)
@@ -126,6 +144,8 @@ static void Main(string[] args)
                 Console.WriteLine("Password validation result: " + result);
                 result = program.validateUppercase("saNjanaks");
                 Console.WriteLine("Uppercase validation result: " + result);
+                result = program.validateNumericcase("sanjana5ks");
+                Console.WriteLine("Numeric case validation result: " + result);
 }
 
 

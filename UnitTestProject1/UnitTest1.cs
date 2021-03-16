@@ -96,6 +96,21 @@ namespace UnitTestProject1
             bool result = program.validateUppercase("sanjana");
             Assert.AreEqual(false, result);
         }
+        [TestMethod]
+        public void TestValidNumericcase()
+        {
+            Program program = new Program();
+            bool result = program.validateNumericcase("sanjana5Ks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidNumericcase()
+        {
+            Program program = new Program();
+            bool result = program.validateNumericcase("sanjana5ks");
+            Assert.AreEqual(false, result);
+        }
     }
 
 }
