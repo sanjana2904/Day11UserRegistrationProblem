@@ -1,3 +1,4 @@
+using Day11UserRegistration;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,6 +20,23 @@ namespace UnitTestProject1
             bool result = program.validateFirstName("sanjana");
             Assert.AreEqual(false, result);
         }
+
+        [TestMethod]
+        public void TestLastName()
+        {
+            Program program = new Program();
+            bool result = program.validateName("Sanjana");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInvalidLastName()
+        {
+            Program program = new Program();
+            bool result = program.validateName("sanju");
+            Assert.AreEqual(false, result);
+        }
     }
-    }
+
 }
+
