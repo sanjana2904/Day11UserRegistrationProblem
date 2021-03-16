@@ -4,24 +4,26 @@ using System.Text.RegularExpressions;
 
 namespace Day11UserRegistration
 {
-    class Program
+   public class Program
     {
 
         public bool validateFirstName(string firstName)
         {
             string pattern = @"^[A-Z]\w{2,}$";
             bool result = Regex.IsMatch(firstName, pattern);
+            return result;
 
             try
+
             {
                 if (Regex.IsMatch(firstName, pattern))
-                    return result;
+                    return true;
                 else
                     throw new UserRegistrationException(UserRegistration.ExceptionType.INVALID_FIRSTNAME, "Invalid first name")
             }
             catch (UserRegistrationException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.result);
                 return false;
             }
 
